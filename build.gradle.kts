@@ -20,12 +20,24 @@ repositories {
 }
 
 dependencies {
+    // Spring starter
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-web-services")
+
+    // JSON
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    runtimeOnly("com.mysql:mysql-connector-j")
+
+    // Flyway
+    implementation("org.flywaydb:flyway-core:7.15.0") // Flyway migration을 SQLServer 버전과 같이 변경할 것
+    implementation("org.flywaydb:flyway-mysql")
+
+    // MySQL
+    runtimeOnly("mysql:mysql-connector-java:8.0.32")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
