@@ -1,6 +1,6 @@
 package com.java.kiosk.app.core.domain.repository.sale
 
-import com.java.kiosk.app.common.sale.SaleHeader
+import com.java.kiosk.app.common.entity.sale.SaleHeader
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

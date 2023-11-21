@@ -1,4 +1,4 @@
-package com.java.kiosk.app.common.base
+package com.java.kiosk.app.common.entity.base
 
 import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners

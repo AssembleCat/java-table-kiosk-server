@@ -1,6 +1,6 @@
-package com.java.kiosk.app.common.master
+package com.java.kiosk.app.common.entity.master
 
-import com.java.kiosk.app.common.base.CommonEntity
+import com.java.kiosk.app.common.entity.base.CommonEntity
 import jakarta.persistence.*
 
 @Entity(name = "tb_master_product")

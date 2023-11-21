@@ -1,6 +1,6 @@
-package com.java.kiosk.app.common.sale
+package com.java.kiosk.app.common.entity.sale
 
-import com.java.kiosk.app.common.base.CommonEntity
+import com.java.kiosk.app.common.entity.base.CommonEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
