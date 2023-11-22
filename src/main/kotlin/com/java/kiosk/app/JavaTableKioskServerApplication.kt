@@ -3,7 +3,7 @@ package com.java.kiosk.app
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["com.java.kiosk.app"])
 class JavaTableKioskServerApplication
 
 fun main(args: Array<String>) {

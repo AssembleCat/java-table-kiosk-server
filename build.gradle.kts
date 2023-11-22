@@ -31,10 +31,6 @@ dependencies {
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    // Flyway
-    implementation("org.flywaydb:flyway-core:7.15.0") // Flyway migration을 SQLServer 버전과 같이 변경할 것
-    implementation("org.flywaydb:flyway-mysql")
-
     // MySQL
     runtimeOnly("mysql:mysql-connector-java:8.0.32")
 
