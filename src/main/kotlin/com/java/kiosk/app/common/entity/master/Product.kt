@@ -15,6 +15,6 @@ class Product(
     var name: String,
 
     @Column(name = "NAME_ENG", length = 512)
-    var nameEnd: String?
+    var nameEng: String?
 ) : CommonEntity() {
 }
