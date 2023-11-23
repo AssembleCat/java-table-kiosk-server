@@ -1,8 +1,10 @@
 package com.java.kiosk.app.window
 
 import com.java.kiosk.app.common.dto.request.ProductCreateRequestDto
+import com.java.kiosk.app.common.dto.request.ProductUpdateRequestDto
 import com.java.kiosk.app.core.service.core.ProductCoreService
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -17,5 +19,12 @@ class ProductController(
         @RequestBody request: ProductCreateRequestDto
     ): Boolean {
         return productCoreService.create(request)
+    }
+
+    @PutMapping
+    fun updateProduct(
+        @RequestBody request: ProductUpdateRequestDto
+    ): Boolean {
+        return productCoreService.update(request)
     }
 }

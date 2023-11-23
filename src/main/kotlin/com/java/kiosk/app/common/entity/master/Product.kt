@@ -1,5 +1,6 @@
 package com.java.kiosk.app.common.entity.master
 
+import com.java.kiosk.app.common.dto.request.ProductUpdateRequestDto
 import com.java.kiosk.app.common.entity.base.CommonEntity
 import jakarta.persistence.*
 
@@ -17,4 +18,11 @@ class Product(
     @Column(name = "NAME_ENG", length = 512)
     var nameEng: String?
 ) : CommonEntity() {
+    fun update(request: ProductUpdateRequestDto) {
+        apply {
+            price = request.price ?: price
+            name = request.name ?: name
+            nameEng = request.nameEng ?: nameEng
+        }
+    }
 }
