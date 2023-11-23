@@ -1,11 +1,8 @@
 package com.java.kiosk.app.common.entity.sale
 
 import com.java.kiosk.app.common.entity.base.CommonEntity
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import com.java.kiosk.app.common.entity.master.Product
+import jakarta.persistence.*
 
 @Entity(name = "tb_sales_detail")
 class SaleDetail(
@@ -15,13 +12,14 @@ class SaleDetail(
     @Column(name = "HEADER_ID", nullable = false)
     val headerId: Int,
 
-    @Column(name = "PRODUCT_ID", nullable = false)
-    val productId: Int,
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_ID", nullable = false)
+    val product: Product,
 
     @Column(name = "QTY", nullable = false)
     val qty: Int,
 
     @Column(name = "PRICE", nullable = false)
-    val price: ULong
+    val price: Int
 ): CommonEntity() {
 }
