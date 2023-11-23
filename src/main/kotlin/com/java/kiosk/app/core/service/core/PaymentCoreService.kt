@@ -1,13 +1,16 @@
 package com.java.kiosk.app.core.service.core
 
+import com.java.kiosk.app.common.dto.request.SaleCreateRequestDto
 import com.java.kiosk.app.common.dto.response.SaleDetailQueryResponseDto
 import com.java.kiosk.app.common.dto.response.SaleHeaderQueryResponseDto
 import com.java.kiosk.app.core.domain.repository.sale.SaleDetailRepository
 import com.java.kiosk.app.core.domain.repository.sale.SaleHeaderRepository
+import com.java.kiosk.app.core.service.sale.SaleHeaderService
 import org.springframework.stereotype.Service
 
 @Service
 class PaymentCoreService(
+    private val saleHeaderService: SaleHeaderService,
     private val saleHeaderRepository: SaleHeaderRepository,
     private val saleDetailRepository: SaleDetailRepository
 ) {
@@ -32,8 +35,20 @@ class PaymentCoreService(
             SaleDetailQueryResponseDto(
                 productName = detail.product.name,
                 qty = detail.qty,
-                price = detail.price
+                price = detail.product.price
             )
+        }
+    }
+
+    fun persistSale(request: SaleCreateRequestDto): Boolean {
+        return try {
+            val header = saleHeaderService.createSaleHeader(request)
+
+            saleHeaderRepository.save(header)
+
+            true
+        } catch (e: Exception) {
+            false
         }
     }
 }

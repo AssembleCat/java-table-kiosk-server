@@ -1,9 +1,12 @@
 package com.java.kiosk.app.window
 
+import com.java.kiosk.app.common.dto.request.SaleCreateRequestDto
 import com.java.kiosk.app.common.dto.response.SaleDetailQueryResponseDto
 import com.java.kiosk.app.common.dto.response.SaleHeaderQueryResponseDto
 import com.java.kiosk.app.core.service.core.PaymentCoreService
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -27,4 +30,10 @@ class PaymentController(
         return paymentCoreService.queryDetail(headerId)
     }
 
+    @PostMapping
+    fun createSale(
+        @RequestBody request: SaleCreateRequestDto
+    ): Boolean {
+        return paymentCoreService.persistSale(request)
+    }
 }
