@@ -16,7 +16,11 @@ class Product(
     var name: String,
 
     @Column(name = "NAME_ENG", length = 512)
-    var nameEng: String?
+    var nameEng: String?,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "managerId", nullable = false)
+    var manager: Manager
 ) : CommonEntity() {
     fun update(request: ProductUpdateRequestDto) {
         apply {
