@@ -23,6 +23,7 @@ class ProductCoreService(
 
         return products.map { product ->
             ProductQueryResponseDto(
+                id = product.id!!,
                 name = product.name,
                 nameEnd = product.nameEng ?: product.name,
                 price = product.price
