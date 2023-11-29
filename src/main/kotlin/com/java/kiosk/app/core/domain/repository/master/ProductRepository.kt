@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ProductRepository: JpaRepository<Product, Int> {
-    fun findByManager(manager: Manager): List<Product>
+    fun findByManagerAndUseYn(manager: Manager, useYn: Boolean = true): List<Product>
 }

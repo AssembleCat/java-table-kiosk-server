@@ -18,6 +18,9 @@ class Product(
     @Column(name = "NAME_ENG", length = 512)
     var nameEng: String?,
 
+    @Column(name = "USE_YN", nullable = false)
+    var useYn: Boolean = true,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "managerId", nullable = false)
     var manager: Manager

@@ -19,13 +19,13 @@ class ProductCoreService(
         val manager = managerRepository.findById(managerId)
             .orElseThrow { EntityNotFoundException("User not found") }
 
-        val products = productRepository.findByManager(manager)
+        val products = productRepository.findByManagerAndUseYn(manager)
 
         return products.map { product ->
             ProductQueryResponseDto(
                 id = product.id!!,
                 name = product.name,
-                nameEnd = product.nameEng ?: product.name,
+                nameEng = product.nameEng ?: product.name,
                 price = product.price
             )
         }

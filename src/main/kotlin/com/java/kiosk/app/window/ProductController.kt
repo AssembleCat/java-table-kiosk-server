@@ -4,6 +4,7 @@ import com.java.kiosk.app.common.dto.request.ProductCreateRequestDto
 import com.java.kiosk.app.common.dto.request.ProductUpdateRequestDto
 import com.java.kiosk.app.common.dto.response.ProductQueryResponseDto
 import com.java.kiosk.app.core.service.core.ProductCoreService
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -14,8 +15,8 @@ class ProductController(
     @GetMapping("/{managerId}")
     fun queryProduct(
         @PathVariable("managerId") managerId: Int
-    ): List<ProductQueryResponseDto> {
-        return productCoreService.query(managerId)
+    ): ResponseEntity<Map<String, List<ProductQueryResponseDto>>> {
+        return ResponseEntity.ok(mapOf("products" to productCoreService.query(managerId)))
     }
 
     @PostMapping
