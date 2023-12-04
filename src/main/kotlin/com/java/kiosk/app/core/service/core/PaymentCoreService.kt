@@ -17,7 +17,9 @@ class PaymentCoreService(
     fun queryHeader(managerId: Int): List<SaleHeaderQueryResponseDto> {
         val headers = saleHeaderRepository.findByManagerId(managerId)
 
-        return headers.map { header ->
+        return headers
+            .sortedBy { it.time }
+            .map { header ->
             val totalProps = header.getTotalProps()
             SaleHeaderQueryResponseDto(
                 id = header.id!!,
@@ -48,6 +50,7 @@ class PaymentCoreService(
 
             true
         } catch (e: Exception) {
+            println(e.message)
             false
         }
     }
