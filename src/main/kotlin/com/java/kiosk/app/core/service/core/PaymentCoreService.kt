@@ -23,7 +23,7 @@ class PaymentCoreService(
             val totalProps = header.getTotalProps()
             SaleHeaderQueryResponseDto(
                 id = header.id!!,
-                saleDttm = header.time,
+                saleDttm = header.time.toString(),
                 totalQty = totalProps.qty,
                 totalPrice = totalProps.price
             )
